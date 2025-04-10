@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Download</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="particles" id="particles-js"></div>
+    
+    <div class="app-container">
+        <div class="glass-card">
+            <div class="header">
+                <div class="logo-pulse">
+                    <div class="logo-inner">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+                
+                <h1>YouTube <span>Download</span></h1>
+                <div class="tag">
+                    
+                    
+                </div>
+            </div>
+
+            <div class="hero-section">
+                <h2>Baixe vídeos e músicas em segundos</h2>
+                <div class="features-bar">
+                    <div class="feature-item">
+                        <i class="fas fa-bolt"></i>
+                        <span>Ultra Rápido</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>100% Seguro</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-trophy"></i>
+                        <span>Alta Qualidade</span>
+                    </div>
+                </div>
+            </div>
+
+            <form method="POST" class="smart-form" id="downloadForm">
+                <div class="url-input-wrapper">
+                    <div class="url-input-container">
+                        <i class="fas fa-link icon-inside"></i>
+                        <input type="text" name="url" id="urlInput" placeholder="Cole o link do YouTube aqui..." required autocomplete="off" class="url-input">
+                        <button type="button" class="paste-button" id="pasteButton">
+                            <i class="fas fa-paste"></i>
+                        </button>
+                    </div>
+                    <div class="url-feedback" id="urlFeedback"></div>
+                </div>
+                
+                <div class="format-selector">
+                    <h3>Escolha o formato</h3>
+                    
+                    <div class="format-options">
+                        <label class="format-option active" id="videoOption">
+                            <input type="radio" name="option" value="video" checked>
+                            <div class="option-card">
+                                <div class="option-icon">
+                                    <i class="fas fa-film"></i>
+                                </div>
+                                <div class="option-info">
+                                    <div class="option-name">Vídeo + Áudio</div>
+                                    <div class="option-detail">
+                                        <span class="quality">Até 4K</span>
+                                        <span class="format">MP4</span>
+                                    </div>
+                                </div>
+                                <div class="check-indicator">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+                        </label>
+                        
+                        <label class="format-option" id="audioOption">
+                            <input type="radio" name="option" value="audio">
+                            <div class="option-card">
+                                <div class="option-icon">
+                                    <i class="fas fa-music"></i>
+                                </div>
+                                <div class="option-info">
+                                    <div class="option-name">Apenas Áudio</div>
+                                    <div class="option-detail">
+                                        <span class="quality">320kbps</span>
+                                        <span class="format">MP3</span>
+                                    </div>
+                                </div>
+                                <div class="check-indicator">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quality-options" id="videoQualityOptions">
+                    <h3>Qualidade de vídeo</h3>
+                    <div class="quality-selector">
+                        <label class="quality-option active">
+                            <input type="radio" name="videoquality" value="highest" checked>
+                            <span class="quality-label">Auto (Melhor qualidade)</span>
+                        </label>
+                        <label class="quality-option">
+                            <input type="radio" name="videoquality" value="1080p">
+                            <span class="quality-label">1080p</span>
+                        </label>
+                        <label class="quality-option">
+                            <input type="radio" name="videoquality" value="720p">
+                            <span class="quality-label">720p</span>
+                        </label>
+                        <label class="quality-option">
+                            <input type="radio" name="videoquality" value="480p">
+                            <span class="quality-label">480p</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quality-options" id="audioQualityOptions" style="display: none;">
+                    <h3>Qualidade de áudio</h3>
+                    <div class="quality-selector">
+                        <label class="quality-option active">
+                            <input type="radio" name="audioquality" value="320" checked>
+                            <span class="quality-label">Alta (320 kbps)</span>
+                        </label>
+                        <label class="quality-option">
+                            <input type="radio" name="audioquality" value="256">
+                            <span class="quality-label">Boa (256 kbps)</span>
+                        </label>
+                        <label class="quality-option">
+                            <input type="radio" name="audioquality" value="128">
+                            <span class="quality-label">Normal (128 kbps)</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="action-section">
+                    <button type="submit" class="download-button" id="downloadButton">
+                        <span class="button-text">DOWNLOAD</span>
+                        <i class="fas fa-arrow-down"></i>
+                    </button>
+                    
+                    <div class="action-note">
+                        <i class="fas fa-lock"></i>
+                        <span>Sem limites, sem cadastro, 100% grátis</span>
+                    </div>
+                </div>
+            </form>
+            
+            <div class="progress-container">
+                <div class="steps" id="progressSteps">
+                    <div class="step active" id="step1">
+                        <div class="step-icon"><i class="fas fa-paste"></i></div>
+                        <div class="step-text">Cole o link</div>
+                    </div>
+                    <div class="step" id="step2">
+                        <div class="step-icon"><i class="fas fa-cog"></i></div>
+                        <div class="step-text">Processar</div>
+                    </div>
+                    <div class="step" id="step3">
+                        <div class="step-icon"><i class="fas fa-download"></i></div>
+                        <div class="step-text">Baixar</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modal de processamento -->
+            <div class="modal" id="processingModal">
+                <div class="modal-content">
+                    <div class="loading-animation">
+                        <div class="spinner"></div>
+                    </div>
+                    <h3>Processando seu vídeo</h3>
+                    <p class="modal-message">Estamos preparando seu arquivo para download...</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="progress-text" id="progressText">0%</p>
+                </div>
+            </div>
+            
+            <!-- Modal de visualização -->
+            <div class="modal" id="previewModal">
+                <div class="modal-content preview-modal-content">
+                    <div class="modal-close" id="closePreviewModal"><i class="fas fa-times"></i></div>
+                    <div class="video-info" id="videoInfo">
+                        <div class="video-thumbnail" id="videoThumbnail">
+                            <div class="thumbnail-overlay">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                        </div>
+                        <div class="video-details">
+                            <h3 id="videoTitle">Carregando título...</h3>
+                            <div class="video-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span id="videoDuration">00:00</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-eye"></i>
+                                    <span id="videoViews">0 visualizações</span>
+                                </div>
+                            </div>
+                            <div class="channel-info">
+                                <i class="fas fa-user-circle"></i>
+                                <span id="channelName">Nome do canal</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="download-options">
+                        <h4>Pronto para download</h4>
+                        <div class="download-files" id="downloadFiles">
+                            <!-- Opções de download serão adicionadas por JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="devices">
+                <i class="fas fa-laptop"></i>
+                <i class="fas fa-mobile-alt"></i>
+                <i class="fas fa-tablet-alt"></i>
+            </div>
+            <div class="copyright">
+                © 2025 <a href="https://github.com/EduardoH4S" target="_blank"><i class="fab fa-github"></i> EduardoH4S</a>
+            </div>
+        </div>
+        
+    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
+
