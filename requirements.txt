@@ -11,3 +11,5 @@ requests==2.31.0
 Werkzeug==2.3.7
 
 python-dotenv==1.0.0
+
+yt-dlp==2023.7.6
