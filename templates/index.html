@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,7 +10,6 @@
 </head>
 <body>
     <div class="particles" id="particles-js"></div>
-    
     <div class="app-container">
         <div class="glass-card">
             <div class="header">
@@ -20,14 +18,10 @@
                         <i class="fab fa-youtube"></i>
                     </div>
                 </div>
-                
                 <h1>YouTube <span>Download</span></h1>
                 <div class="tag">
-                    
-                    
                 </div>
             </div>
-
             <div class="hero-section">
                 <h2>Baixe vídeos e músicas em segundos</h2>
                 <div class="features-bar">
@@ -45,7 +39,6 @@
                     </div>
                 </div>
             </div>
-
             <form method="POST" class="smart-form" id="downloadForm">
                 <div class="url-input-wrapper">
                     <div class="url-input-container">
@@ -57,10 +50,8 @@
                     </div>
                     <div class="url-feedback" id="urlFeedback"></div>
                 </div>
-                
                 <div class="format-selector">
                     <h3>Escolha o formato</h3>
-                    
                     <div class="format-options">
                         <label class="format-option active" id="videoOption">
                             <input type="radio" name="option" value="video" checked>
@@ -80,7 +71,6 @@
                                 </div>
                             </div>
                         </label>
-                        
                         <label class="format-option" id="audioOption">
                             <input type="radio" name="option" value="audio">
                             <div class="option-card">
@@ -101,7 +91,6 @@
                         </label>
                     </div>
                 </div>
-                
                 <div class="quality-options" id="videoQualityOptions">
                     <h3>Qualidade de vídeo</h3>
                     <div class="quality-selector">
@@ -123,7 +112,6 @@
                         </label>
                     </div>
                 </div>
-                
                 <div class="quality-options" id="audioQualityOptions" style="display: none;">
                     <h3>Qualidade de áudio</h3>
                     <div class="quality-selector">
@@ -141,20 +129,17 @@
                         </label>
                     </div>
                 </div>
-                
                 <div class="action-section">
                     <button type="submit" class="download-button" id="downloadButton">
                         <span class="button-text">DOWNLOAD</span>
                         <i class="fas fa-arrow-down"></i>
                     </button>
-                    
                     <div class="action-note">
                         <i class="fas fa-lock"></i>
                         <span>Sem limites, sem cadastro, 100% grátis</span>
                     </div>
                 </div>
             </form>
-            
             <div class="progress-container">
                 <div class="steps" id="progressSteps">
                     <div class="step active" id="step1">
@@ -171,7 +156,6 @@
                     </div>
                 </div>
             </div>
-            
             <!-- Modal de processamento -->
             <div class="modal" id="processingModal">
                 <div class="modal-content">
@@ -186,7 +170,6 @@
                     <p class="progress-text" id="progressText">0%</p>
                 </div>
             </div>
-            
             <!-- Modal de visualização -->
             <div class="modal" id="previewModal">
                 <div class="modal-content preview-modal-content">
@@ -224,7 +207,6 @@
                 </div>
             </div>
         </div>
-        
         <div class="footer">
             <div class="devices">
                 <i class="fas fa-laptop"></i>
@@ -235,10 +217,8 @@
                 © 2025 <a href="https://github.com/EduardoH4S" target="_blank"><i class="fab fa-github"></i> EduardoH4S</a>
             </div>
         </div>
-        
-    
+    </div> <!-- Adicionado o fechamento da div app-container que faltava -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="/static/script.js"></script>
 </body>
 </html>
-
